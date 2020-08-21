@@ -3,9 +3,9 @@ import java.util.Objects;
 class Switcher<T,U> {
 
 
-    private T target;
-    private U result;
-    private boolean hasResult;
+    protected T target;
+    protected U result;
+    protected boolean hasResult;
 
 
     Switcher(T target, U result) {
@@ -19,6 +19,10 @@ class Switcher<T,U> {
         this.hasResult = false;
     }
 
+
+    public static <T extends Comparable<T>> ComparableTargetSwitcher<T> switcher(T target){
+        return new ComparableTargetSwitcher<>(target);
+    }
 
     public static <T> TargetSwitcher<T> switcher(T target){
         return new TargetSwitcher<>(target);

@@ -6,7 +6,7 @@ import static java.util.Objects.nonNull;
 class TargetSwitcher<T> {
 
 
-    private T target;
+    protected T target;
 
 
     TargetSwitcher(T target) {
