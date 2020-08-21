@@ -5,16 +5,16 @@ public class SwitcherTest {
 
     private String trivialSwitcher(Integer number){
         return Switcher.switcher(number)
-                .option("null",
-                        null)
-                .option("one",
-                        1)
-                .option("two",
-                        2)
-                .option("three or four",
-                        3,4)
-                .option("five",
-                        5)
+                .option(null,
+                        "null")
+                .option(1,
+                        "one")
+                .option(2,
+                        "two")
+                .option(3,4,
+                        "three or four")
+                .option(5,
+                        "five")
                 .byDefault("a lot");
     }
 

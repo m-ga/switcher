@@ -13,6 +13,13 @@ class TargetSwitcher<T> {
         this.target = target;
     }
 
+    public <U> Switcher<T,U> option(T when, U result) {
+        return option(result, when);
+    }
+
+    public <U> Switcher<T,U> option(T when, T or, U result) {
+        return option(result, when, or);
+    }
 
     public <U> Switcher<T,U> option(U result, T... when) {
         if (nonNull(when)){

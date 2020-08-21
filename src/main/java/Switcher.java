@@ -28,6 +28,14 @@ class Switcher<T,U> {
         return new TargetSwitcher<>(target);
     }
 
+    public Switcher<T,U> option(T when, U result) {
+        return option(result, when);
+    }
+
+    public Switcher<T,U> option(T when, T or, U result) {
+        return option(result, when, or);
+    }
+
     public Switcher<T,U> option(U result, T... when){
         if(!hasResult){
             for (T option : when) {
