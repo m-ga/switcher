@@ -28,10 +28,6 @@ class TargetSwitcher<T> {
                     return new Switcher<>(target, result);
                 }
             }
-//        } else {
-//            if (isNull(target)) {
-//                return new Switcher<>(null, result);
-//            }
         }
         return new Switcher<>(target);
     }
