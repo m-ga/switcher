@@ -11,15 +11,15 @@ public class ComparableSwitcher<T extends Comparable<T>,U> extends Switcher<T,U>
         super(target);
     }
 
-    public ComparableSwitcher<T,U> range(T from, T to, U result){
-        return range(from, to, false, false, result);
+    public ComparableSwitcher<T,U> in(T from, T to, U result){
+        return in(from, to, false, false, result);
     }
 
-    public ComparableSwitcher<T,U> range(T from, T to, boolean exclude, U result){
-        return range(from, to, exclude, exclude, result);
+    public ComparableSwitcher<T,U> in(T from, T to, boolean exclude, U result){
+        return in(from, to, exclude, exclude, result);
     }
 
-    public ComparableSwitcher<T,U> range(T from, T to, boolean excludeFrom, boolean excludeTo, U result){
+    public ComparableSwitcher<T,U> in(T from, T to, boolean excludeFrom, boolean excludeTo, U result){
         if (!hasResult && aboveFrom(from, excludeFrom) && belowTo(to, excludeTo)){
             this.result = result;
             this.hasResult = true;

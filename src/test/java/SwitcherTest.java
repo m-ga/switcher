@@ -5,17 +5,17 @@ public class SwitcherTest {
 
     private String trivialSwitcher(Integer number){
         return Switcher.switcher(number)
-                .option(null,
+                .val(null,
                         "null")
-                .option(1,
+                .val(1,
                         "one")
-                .option(2,
+                .val(2,
                         "two")
-                .option(3,4,
+                .val(3,4,
                         "three or four")
-                .option(5,
+                .val(5,
                         "five")
-                .byDefault("a lot");
+                .orElse("a lot");
     }
 
     @Test

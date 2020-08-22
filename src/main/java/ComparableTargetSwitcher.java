@@ -6,15 +6,15 @@ public class ComparableTargetSwitcher<T extends Comparable<T>> extends TargetSwi
         super(target);
     }
 
-    public <U> ComparableSwitcher<T,U> range(T from, T to, U result){
-        return range(from, to, false, false, result);
+    public <U> ComparableSwitcher<T,U> in(T from, T to, U result){
+        return in(from, to, false, false, result);
     }
 
-    public <U> ComparableSwitcher<T,U> range(T from, T to, boolean exclude, U result){
-        return range(from, to, exclude, exclude, result);
+    public <U> ComparableSwitcher<T,U> in(T from, T to, boolean exclude, U result){
+        return in(from, to, exclude, exclude, result);
     }
 
-    public <U> ComparableSwitcher<T,U> range(T from, T to, boolean excludeFrom, boolean excludeTo, U result){
+    public <U> ComparableSwitcher<T,U> in(T from, T to, boolean excludeFrom, boolean excludeTo, U result){
         if(aboveFrom(from, excludeFrom) && belowTo(to, excludeTo))
             return new ComparableSwitcher<>(target,result);
         return new ComparableSwitcher<>(target);

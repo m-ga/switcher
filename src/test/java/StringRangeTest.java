@@ -6,13 +6,13 @@ public class StringRangeTest {
 
     private static String alphabetically(String name){
         return Switcher.switcher(name)
-                .range(null,"Bob", true,
+                .in(null,"Bob", true,
                         "Before Bob")
-                .range("Bob","Tom", true,
+                .in("Bob","Tom", true,
                         "between Bob and Tom")
-                .range( "Tom",null, true,
+                .in( "Tom",null, true,
                         "after Tom")
-                .byDefault("Bob or Tom");
+                .orElse("Bob or Tom");
     }
 
     @Test

@@ -9,13 +9,13 @@ public class MixedSwitcherTest {
 
     private String weekPart(LocalDate date){
         return Switcher.switcher(date.getDayOfWeek())
-                .range(MONDAY, THURSDAY,
+                .in(MONDAY, THURSDAY,
                         "work")
-                .option(FRIDAY,
+                .val(FRIDAY,
                         "almost weekend")
-                .option(SATURDAY, SUNDAY,
+                .val(SATURDAY, SUNDAY,
                         "weekend")
-                .byDefault("something went wrong");
+                .orElse("something went wrong");
     }
 
     @Test

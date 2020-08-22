@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-class Switcher<T,U> {
+public class Switcher<T,U> {
 
 
     protected T target;
@@ -28,15 +28,15 @@ class Switcher<T,U> {
         return new TargetSwitcher<>(target);
     }
 
-    public Switcher<T,U> option(T when, U result) {
-        return option(result, when);
+    public Switcher<T,U> val(T when, U result) {
+        return val(result, when);
     }
 
-    public Switcher<T,U> option(T when, T or, U result) {
-        return option(result, when, or);
+    public Switcher<T,U> val(T when, T or, U result) {
+        return val(result, when, or);
     }
 
-    public Switcher<T,U> option(U result, T... when){
+    public final Switcher<T,U> val(U result, T... when){
         if(!hasResult){
             for (T option : when) {
                 if(Objects.equals(target, option)){
@@ -48,7 +48,7 @@ class Switcher<T,U> {
         return this;
     }
 
-    public U byDefault(U defaultValue){
+    public U orElse(U defaultValue){
         return hasResult
                 ? result
                 : defaultValue;

@@ -6,13 +6,13 @@ public class IntegerRangeTest {
 
     private static String nameRange(Integer number){
         return Switcher.switcher(number)
-                .range(null,0,
+                .in(null,0,
                         "below zero")
-                .range(1,2,
+                .in(1,2,
                         "one or two")
-                .range(4,null,
+                .in(4,null,
                         "four or more")
-                .byDefault("three");
+                .orElse("three");
     }
 
     @Test
