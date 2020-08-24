@@ -1,10 +1,36 @@
+import java.util.Objects;
+
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
 
-public class ComparableTargetSwitcher<T extends Comparable<T>> extends TargetSwitcher<T> {
+public class ComparableTargetSwitcher<T extends Comparable<T>> {
 
-    ComparableTargetSwitcher(T target) {
-        super(target);
+    protected T target;
+
+    public ComparableTargetSwitcher(T target) {
+        this.target = target;
     }
+
+
+    public <U> ComparableSwitcher<T,U> val(T when, U result) {
+        return val(result, when);
+    }
+
+    public <U> ComparableSwitcher<T,U> val(T when, T or, U result) {
+        return val(result, when, or);
+    }
+
+    public <U> ComparableSwitcher<T,U> val(U result, T... when) {
+        if (nonNull(when)){
+            for (T option : when) {
+                if (Objects.equals(target, option)) {
+                    return new ComparableSwitcher<>(target, result);
+                }
+            }
+        }
+        return new ComparableSwitcher<>(target);
+    }
+
 
     public <U> ComparableSwitcher<T,U> in(T from, T to, U result){
         return in(from, to, false, false, result);
